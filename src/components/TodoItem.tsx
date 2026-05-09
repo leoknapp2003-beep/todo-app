@@ -20,6 +20,7 @@ export default function TodoItem({ todo }: { todo: Todo }) {
       <form action={toggleTodo.bind(null, todo.id)}>
         <button
           type="submit"
+          aria-label={todo.completed ? '完了を取り消す' : '完了にする'}
           className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${
             todo.completed
               ? 'bg-gradient-to-br from-violet-500 to-indigo-600 border-violet-500'
@@ -60,6 +61,7 @@ export default function TodoItem({ todo }: { todo: Todo }) {
       <form action={deleteTodo.bind(null, todo.id)}>
         <button
           type="submit"
+          aria-label="削除"
           className="opacity-0 group-hover:opacity-100 text-red-400 hover:bg-red-50 w-7 h-7 flex items-center justify-center rounded-lg text-base transition-all flex-shrink-0"
         >
           ×
