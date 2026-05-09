@@ -8,7 +8,8 @@ export interface Todo {
   createdAt: string
 }
 
-const DATA_DIR = path.join(process.cwd(), 'data')
+// Vercel serverless は process.cwd() が読み取り専用のため /tmp を使用
+const DATA_DIR = process.env.VERCEL ? '/tmp' : path.join(process.cwd(), 'data')
 const DATA_FILE = path.join(DATA_DIR, 'todos.json')
 
 function ensureFile(): void {
